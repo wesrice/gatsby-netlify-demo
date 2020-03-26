@@ -6,13 +6,58 @@
 
 // You can delete this file if you're not using it
 
-const { renderToString } = require('react-dom/server');
+import cheerio from 'cheerio';
+import crypto from 'crypto';
+import fs from 'fs';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
 
-exports.replaceRenderer = ({
+const elements = [
+  '#gatsby-announcer',
+  '#gatsby-focus-wrapper',
+];
+
+const cssFileNameBase = 'gatsby-inline';
+
+export const replaceRenderer = ({
   bodyComponent,
   replaceBodyHTMLString,
+  setHeadComponents,
 }) => {
-  HTMLString = renderToString(bodyComponent);
-  HTMLString = HTMLString.replace(' style="outline:none"', '');
-  replaceBodyHTMLString(HTMLString);
-}
+  const $ = cheerio.load(renderToString(bodyComponent));
+  const cssRules = [];
+
+  elements.forEach(element => {
+    const $element = $(element);
+    const styleRules = $element.attr('style');
+    cssRules.push(`${element} { ${styleRules} }`);
+    $element.removeAttr('style');
+  });
+
+  const css = cssRules.join("\n");
+
+  const filenameHash = crypto
+    .createHash('sha256')
+    .digest('hex')
+    .slice(0, 20);
+
+  const cssFileName = `${cssFileNameBase}.${filenameHash}.css`;
+
+  const integrityHash = crypto
+    .createHash('sha512')
+    .update(css)
+    .digest('base64');
+
+  fs.writeFileSync(`public/${cssFileName}`, css, 'utf-8');
+
+  setHeadComponents(
+    <link
+      href={`/${cssFileName}`}
+      integrity={integrityHash}
+      rel="stylesheet"
+      type="text/css"
+    />
+  );
+
+  replaceBodyHTMLString($('body').html());
+};
