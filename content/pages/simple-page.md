@@ -1,5 +1,5 @@
 ---
-title: Simple Page
+title: Simple Page.
 seo:
   description: This page is a markdown page.
   keywords:
