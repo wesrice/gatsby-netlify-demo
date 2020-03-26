@@ -1,0 +1,20 @@
+export default {
+  buttons: [
+    'bold',
+    'italic',
+    'code',
+    'link',
+    'heading-two',
+    'heading-three',
+    'heading-four',
+    'heading-five',
+    'heading-six',
+    'quote',
+    'code-block',
+    'bulleted-list',
+    'numbered-list',
+  ],
+  label: 'Body',
+  name: 'body',
+  widget: 'mdx',
+};

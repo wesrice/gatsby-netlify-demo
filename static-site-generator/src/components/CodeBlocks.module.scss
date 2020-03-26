@@ -1,0 +1,45 @@
+.list {
+  list-style-type: none;
+  margin: none;
+  padding: none;
+  text-align: center;
+}
+
+.listItem {
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 10px;
+  margin-bottom: 0 !important;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.csharp {
+  background: red;
+}
+
+.javascript {
+  background: orange;
+}
+
+.go {
+  background: yellowgreen;
+}
+
+.node {
+  background: green;
+}
+
+.perl {
+  background: blue;
+}
+
+.php {
+  background: indigo;
+}
+
+.ruby {
+  background: violet;
+}

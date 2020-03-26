@@ -1,0 +1,78 @@
+@import '../../styles/_variables';
+@import '../../styles/globalMinimal';
+
+.nav {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.navLink {
+  color: blue;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.navLink--active {
+  color: red;
+}
+
+.main {
+  background: white;
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 50px;
+  position: relative;
+  width: 90%;
+}
+
+.title {
+  color: #666;
+  font-size: 40px;
+  margin: 0;
+}
+
+.description {
+  color: #666;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.keywords {
+  color: #666;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &:before {
+    content: 'Keywords:';
+    padding-right: 10px;
+  }
+}
+
+.keyword {
+  display: inline;
+
+  &:after {
+    content: ',';
+    padding-right: 5px;
+  }
+
+  &:last-of-type:after {
+    display: none;
+  }
+}
+
+.keyword-code {
+  background: #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  margin-right: 2px;
+  padding: 0 2px;
+}
+
+.divider {
+  background: transparent;
+  border-top: 1px dashed #ccc;
+  height: 0;
+  margin: 20px 0;
+  width: 100%;
+}

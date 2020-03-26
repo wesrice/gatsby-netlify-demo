@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "mm-playground"
+  },
+  "targets": {
+    "mm-playground": {
+      "hosting": {
+        "cms": [
+          "fc118-cms"
+        ],
+        "website": [
+          "fc118-website"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "interface-name": false,
+    "semicolon": [true, "always"],
+    "member-access": [false],
+    "ordered-imports": [true],
+    "no-console": [false],
+    "no-empty-interface": false,
+    "no-implicit-dependencies": [true, "dev", "normalize.css"],
+    "no-submodule-imports": [true, "react-icons", "svg-react-loader"],
+    "no-var-requires": true,
+    "quotemark": [true, "single", "jsx-double"]
+  },
+  "rulesDirectory": []
+}

@@ -1,0 +1,84 @@
+const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.jsx',
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules\/(?!(gatsby)\/)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: [['react-app', { flow: false, typescript: true }]],
+            plugins: [
+              '@babel/plugin-proposal-class-properties',
+              'babel-plugin-remove-graphql-queries',
+            ],
+          },
+        },
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        options: {
+          presets: [['react-app', { flow: false, typescript: true }]],
+          plugins: [
+            require.resolve('@babel/plugin-proposal-class-properties'),
+            require.resolve('babel-plugin-remove-graphql-queries'),
+          ],
+        },
+      },
+      {
+        test: /\.module\.s(a|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+            },
+          },
+          'sass-loader',
+        ]
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'sass-loader',
+        ]
+      },
+    ]
+  },
+  output: {
+    filename: 'cms.js',
+    path: path.resolve(__dirname, 'build'),
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css' ,
+      chunkFilename: '[id].css',
+    }),
+  ],
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js', '.jsx', '.json', '.scss' ],
+    plugins: [
+      new TsconfigPathsPlugin({
+        configFile: './tsconfig.json',
+        logInfoToStdOut: true,
+      }),
+    ],
+  },
+};

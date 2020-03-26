@@ -1,0 +1,50 @@
+@mixin codeBlock($color, $lang) {
+  background: #eee;
+  border: 1px solid rgba(0,0,0,.05);
+  box-shadow: 0px 3px 7px rgba(0,0,0,.2);
+  color: $color;
+  margin-bottom: 20px;
+  padding: 30px 20px 20px;
+  position: relative;
+
+  &:before {
+    background: $color;
+    color: white;
+    content: '#{$lang}';
+    font-size: 10px;
+    font-weight: bold;
+    left: 0;
+    padding: 3px 5px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+  }
+}
+
+.csharp {
+  @include codeBlock(red, 'c#');
+}
+
+.javascript {
+  @include codeBlock(orange, 'JavaScript');
+}
+
+.go {
+  @include codeBlock(yellowgreen, 'Go');
+}
+
+.node {
+  @include codeBlock(green, 'NodeJS');
+}
+
+.perl {
+  @include codeBlock(blue, 'Perl');
+}
+
+.php {
+  @include codeBlock(indigo, 'PHP');
+}
+
+.ruby {
+  @include codeBlock(violet, 'Ruby');
+}

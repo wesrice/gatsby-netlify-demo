@@ -1,0 +1,48 @@
+{
+  "functions": {
+    "predeploy": []
+  },
+  "hosting": [
+    {
+      "public": "sites/cms",
+      "target": "cms"
+    },
+    {
+      "headers": [
+        {
+          "source":"**",
+          "headers": [
+            {
+              "key": "Feature-Policy",
+              "value": "'none'"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "X-Frame-Options",
+              "value": "SAMEORIGIN"
+            }
+          ]
+        }
+      ],
+      "public": "sites/static-site",
+      "redirects": [
+        {
+          "source": "/go-to-non-existent-page",
+          "destination": "/",
+          "type": 301
+        }
+      ],
+      "target": "website"
+    }
+  ],
+  "storage": {
+    "rules": "storage.rules"
+  }
+}
