@@ -41,6 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       allMdx {
         edges {
           node {
+            fileAbsolutePath
             frontmatter {
               title
               seo {
@@ -76,7 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       // (or `node.frontmatter.slug`)
       path: `${node.parent.relativeDirectory}/${node.parent.name}`,
       // This component will wrap our MDX content
-      component: path.resolve(`./src/templates/page.tsx`),
+      component: node.fileAbsolutePath,
       // You can use the values in this context in
       // our page layout component
       context: { id: node.id },

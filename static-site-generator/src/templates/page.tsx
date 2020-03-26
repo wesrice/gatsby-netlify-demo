@@ -1,5 +1,4 @@
 import { graphql, Link } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import Page from '../components/MinimalLayout';
 
@@ -18,21 +17,16 @@ export const query = graphql`
   }
 `;
 
-export default ({ data }: any) => {
-  // tslint:disable-next-line: variable-name
-  const { frontmatter, body } = data.mdx;
-  const { seo, title } = frontmatter;
+export default (props: any) => {
+  const { seo, title } = props.pageContext.frontmatter;
 
   return (
-
     <Page
       description={seo?.description}
       keywords={seo?.keywords}
       title={title}
     >
-      <MDXRenderer>
-        {body}
-      </MDXRenderer>
+      {props.children}
     </Page>
   );
 };
