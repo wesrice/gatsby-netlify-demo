@@ -5,7 +5,7 @@
     "clean:node_modules": "find . -name \"node_modules\" -exec rm -rf '{}' +",
     "cms:build": "yarn --cwd cms build",
     "cms:deploy": "yarn --cwd cms deploy",
-    "cms:install": "yarn --cwd cms install && yarn install:static-site-generator",
+    "cms:install": "yarn --cwd cms install && yarn static-site-generator:install",
     "cms:serve": "yarn --cwd cms serve",
     "infrastructure:install": "yarn --cwd infrastructure install",
     "infrastructure:serve": "yarn --cwd infrastructure serve",
