@@ -43,7 +43,7 @@ module.exports = {
               modules: true,
             },
           },
-          'sass-loader',
+          path.resolve('../static-site-generator/node_modules/sass-loader'),
         ]
       },
       {
@@ -57,7 +57,7 @@ module.exports = {
               importLoaders: 1,
             },
           },
-          'sass-loader',
+          path.resolve('../static-site-generator/node_modules/sass-loader'),
         ]
       },
     ]
@@ -74,6 +74,12 @@ module.exports = {
   ],
   resolve: {
     extensions: [ '.tsx', '.ts', '.js', '.jsx', '.json', '.scss' ],
+    // modules: [
+    //   path.resolve(__dirname, 'src'),
+    //   path.resolve(__dirname, 'node_modules'),
+    //   path.resolve(__dirname, '../static-site-generator/node_modules'),
+    //   'node_modules',
+    // ],
     plugins: [
       new TsconfigPathsPlugin({
         configFile: './tsconfig.json',

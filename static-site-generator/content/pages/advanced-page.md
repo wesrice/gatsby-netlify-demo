@@ -18,7 +18,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
   <CodeBlock lang="javascript">
     Lorem Ipsum
   </CodeBlock>
-  
+
 
   <CodeBlock lang="go">
     Lorem Ipsum

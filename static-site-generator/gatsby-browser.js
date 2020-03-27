@@ -6,17 +6,17 @@
 
  // tslint:disable-next-line:no-implicit-dependencies
 import 'normalize.css';
-import "./src/styles/global.scss";
+import './src/styles/global.scss';
 
 import { MDXProvider } from '@mdx-js/react';
 import React from 'react';
 import * as components from './src/components';
 
-export const wrapRootElement = ({ element }) => (
+export const wrapRootElement = (props) => (
   <MDXProvider
     components={components}
   >
-    {element}
+    {props.element}
   </MDXProvider>
 );
 

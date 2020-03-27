@@ -7,5 +7,6 @@
     "install:infrastructure": "yarn --cwd infrastructure install",
     "install:static-site-generator": "yarn --cwd static-site-generator"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {}
 }
