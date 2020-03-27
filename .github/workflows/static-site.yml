@@ -1,16 +1,16 @@
-name: Build and Deploy Static Site
+name: Static Site
 
 on:
   push:
     branches:
       - master
     paths:
+      - '.github/workflows/static-site.yml'
       - 'content/**'
       - 'static-site-generator/**'
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
 
     strategy:
@@ -35,8 +35,8 @@ jobs:
       - name: Build
         run: yarn static-site-generator:build
 
-      - name: Install Firebase
-        run: npm install -g firebase-tools
+      - name: Install infrastructure tooling
+        run: yarn infrastructure:install
 
       - name: Deploy
         run: yarn static-site-generator:deploy

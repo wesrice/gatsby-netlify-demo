@@ -1,17 +1,17 @@
-name: Build and Deploy CMS
+name: CMS
 
 on:
   push:
     branches:
       - master
     paths:
+      - '.github/workflows/cms.yml'
       - 'cms/**'
       - 'infrastructure/functions/**'
       - 'static-site-generator/**'
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
 
     strategy:
@@ -36,8 +36,8 @@ jobs:
       - name: Build
         run: yarn cms:build
 
-      - name: Install Firebase
-        run: npm install -g firebase-tools
+      - name: Install infrastructure tooling
+        run: yarn infrastructure:install
 
       - name: Deploy
         run: yarn cms:deploy
