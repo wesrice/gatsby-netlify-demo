@@ -75,7 +75,7 @@
   "name": "static-site-generator",
   "private": true,
   "scripts": {
-    "build": "IS_PROD=true gatsby build && yarn util:mv",
+    "build": "yarn gatsby clean && IS_PROD=true gatsby build && yarn util:mv",
     "deploy": "yarn --cwd ../infrastructure firebase deploy  --only hosting:website,storage:website",
     "deploy:ci": "yarn deploy --token \"$FIREBASE_TOKEN\"",
     "format": "prettier --write 'src/**/*.js'",

@@ -34,11 +34,12 @@
   "name": "cms",
   "private": true,
   "scripts": {
-    "build": "NODE_ENV=development webpack --config webpack.prod.js && mv build ../infrastructure/sites/cms",
+    "build": "NODE_ENV=development webpack --config webpack.prod.js && yarn util:mv",
     "deploy": "yarn --cwd ../infrastructure firebase deploy  --only hosting:cms,storage:cms,functions:oauth",
     "deploy:ci": "yarn deploy --token \"$FIREBASE_TOKEN\"",
     "start": "NODE_ENV=development node server.js",
-    "serve": "yarn --cwd ../infrastructure firebase serve --only hosting:cms,functions:oauth"
+    "serve": "yarn --cwd ../infrastructure firebase serve --only hosting:cms,functions:oauth",
+    "util:mv": "rm -rf ../infrastructure/sites/cms && mv build ../infrastructure/sites/cms"
   },
   "version": "0.1.0"
 }
