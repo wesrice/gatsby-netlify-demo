@@ -1,44 +1,11 @@
 {
-  "name": "dev.maxmind.com",
+  "name": "gatsby-netlify-demo",
   "private": true,
-  "repository": "git@github.maxmind.com:wrice/dev.maxmind.com.git",
   "scripts": {
-    "build": "yarn clean:build && yarn build:cms && yarn build:functions && yarn build:static-site && yarn build:mv",
-    "build:cms": "yarn --cwd cms build",
-    "build:cms:mv": "mv ./cms/build ./infrastructure/sites/cms",
-    "build:functions": "yarn --cwd infrastructure/functions build",
-    "build:mv": "yarn build:cms:mv && yarn build:static-site:mv",
-    "build:static-site": "yarn --cwd static-site-generator build",
-    "build:static-site:mv": "mv ./static-site-generator/public ./infrastructure/sites/static-site",
-    "clean:build": "rm -rf ./infrastructure/sites ./static-site-generator/.cache && mkdir ./infrastructure/sites",
     "clean:node_modules": "find . -name \"node_modules\" -exec rm -rf '{}' +",
-    "deploy": "yarn --cwd infrastructure firebase deploy --only hosting,storage,functions:oauth",
-    "deploy:ci": "yarn --cwd infrastructure firebase deploy --only hosting,storage,functions:oauth --token \"$FIREBASE_TOKEN\"",
-    "reinstall": "yarn clean:node_modules && rm -rf yarn.lock yarn-offline-mirror && yarn install",
-    "serve": "yarn --cwd infrastructure firebase serve"
+    "install:cms": "yarn --cwd cms install && yarn install:static-site-generator",
+    "install:infrastructure": "yarn --cwd infrastructure install",
+    "install:static-site-generator": "yarn --cwd static-site-generator"
   },
-  "version": "0.1.0",
-  "workspaces": {
-    "packages": [
-      "cms",
-      "infrastructure",
-      "infrastructure/functions",
-      "static-site-generator"
-    ],
-    "nohoist": [
-      "**/hast-util-to-mdast",
-      "**/html-whitespace-sensitive-tag-names",
-      "**/rehype-minify-whitespace",
-      "**/rehype-remark",
-      "**/vfile-message",
-      "**/netlify-cms-widget-markdown",
-      "**/netlify-cms-widget-mdx",
-      "**/style-loader",
-      "**/svg-react-loader",
-      "cms/**",
-      "static-site-generator/gatsby",
-      "static-site-generator/jest-css-modules"
-    ]
-  },
-  "dependencies": {}
+  "version": "0.1.0"
 }

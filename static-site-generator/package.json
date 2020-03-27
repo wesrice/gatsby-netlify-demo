@@ -73,12 +73,13 @@
   "name": "static-site-generator",
   "private": true,
   "scripts": {
-    "build": "IS_PROD=true gatsby build",
-    "develop": "gatsby develop",
+    "build": "IS_PROD=true gatsby build && mv public ../infrastructure/sites/static-site",
+    "deploy": "yarn --cwd ../infrastructure firebase deploy  --only hosting:website,storage:website",
+    "deploy:ci": "yarn deploy --token \"$FIREBASE_TOKEN\"",
     "format": "prettier --write 'src/**/*.js'",
     "lint": "tslint -c tslint.json 'src/**/*!(.scss.d).ts*'",
-    "serve": "gatsby serve",
-    "start": "yarn develop",
+    "serve": "yarn --cwd ../infrastructure firebase serve --only hosting:website",
+    "start": "gatsby develop",
     "test": "jest"
   },
   "version": "0.1.0"
