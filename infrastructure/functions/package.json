@@ -21,13 +21,13 @@
   "private": true,
   "scripts": {
     "build": "tsc",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "yarn --cwd ../ firebase deploy  --only functions:oauth",
+    "deploy:ci": "yarn deploy --token \"$FIREBASE_TOKEN\"",
     "lint": "tslint --project tsconfig.json",
     "logs": "firebase functions:log",
     "serve": "npm run build && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell"
   },
-  "version": "0.1.0",
-  "workspaces": ["functions"]
+  "version": "0.1.0"
 }
