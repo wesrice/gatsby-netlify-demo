@@ -4,7 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-import fs from 'fs';
 import path from 'path';
 
 export const resolvableExtensions = () => ['.md', '.ts', '.tsx'];
@@ -30,6 +29,15 @@ export const onCreateWebpackConfig = ({ cache, stage, loaders, actions, ...other
       },
     });
   }
+
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        react: path.resolve(__dirname, './node_modules/react'),
+        '@mdx-js/react': path.resolve(__dirname, './node_modules/@mdx-js/react'),
+      },
+    },
+  });
 };
 
 export const createPages = async ({ graphql, actions, reporter }) => {

@@ -19,7 +19,6 @@
   "main": "lib/index.js",
   "name": "functions",
   "private": true,
-  "version": "0.1.0",
   "scripts": {
     "build": "tsc",
     "deploy": "firebase deploy --only functions",
@@ -28,5 +27,7 @@
     "serve": "npm run build && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell"
-  }
+  },
+  "version": "0.1.0",
+  "workspaces": ["functions"]
 }
