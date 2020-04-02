@@ -1,6 +1,22 @@
 {
   "name": "gatsby-netlify-demo",
   "private": true,
+  "renovate": {
+    "lockFileMaintenance": {
+      "automerge": true
+    },
+    "patch": {
+      "automerge": true
+    },
+    "pin": {
+      "automerge": true
+    },
+    "separateMinorPatch": false,
+    "vulnerabilityAlerts": {
+      "labels": ["security"],
+      "assignees": ["@wesrice"]
+    }
+  },
   "scripts": {
     "clean:node_modules": "find . -name \"node_modules\" -exec rm -rf '{}' +",
     "cloud-functions:build": "yarn --cwd infrastructure/functions build",
