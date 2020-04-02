@@ -9,7 +9,7 @@
     "react-dom": "^16.10.1",
     "sass-loader": "^8.0.2",
     "slate-schema-violations": "^0.1.7",
-    "uuid": "^3.3.2"
+    "uuid": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
