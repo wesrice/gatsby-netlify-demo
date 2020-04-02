@@ -12,21 +12,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x] # Only run the 10.x build
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install Yarn
-        run: npm install -g firebase-tools yarn
+      - name: Setup environment
+        run: yarn setup:ci
 
       - name: Install dependencies
         run: yarn cloud-functions:install

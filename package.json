@@ -15,11 +15,17 @@
     "cms:serve": "yarn --cwd cms serve",
     "infrastructure:install": "yarn --cwd infrastructure install",
     "infrastructure:serve": "yarn --cwd infrastructure serve",
+    "setup": "./setup.sh",
+    "setup:ci": "CI=true ./setup.sh",
     "static-site-generator:build": "yarn --cwd static-site-generator build",
     "static-site-generator:deploy": "yarn --cwd static-site-generator deploy",
     "static-site-generator:deploy:ci": "yarn --cwd static-site-generator deploy:ci",
     "static-site-generator:install": "yarn --cwd static-site-generator install",
     "static-site-generator:serve": "yarn --cwd static-site-generator serve"
   },
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "volta": {
+    "node": "10.19.0",
+    "yarn": "1.22.4"
+  }
 }
