@@ -43,7 +43,7 @@ const oauthApp = express();
 oauthApp.get('/auth', (req, res) => {
   const authorizationUri = oauth2.authorizationCode.authorizeURL({
     redirect_uri: oauth.redirect_url,
-    scope: oauth.scopes || 'repo,user',
+    scope: oauth.scopes || 'public_repo,read:user',
     state: randomstring.generate(32),
   });
 
