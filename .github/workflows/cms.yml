@@ -11,15 +11,15 @@ on:
       - 'static-site-generator/**'
 
 jobs:
-  build:
+  cms:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
 
-      - name: Setup environment
-        run: yarn setup:ci
+      - name: Install Volta
+        uses: volta-cli/action@v1
 
       - name: Install dependencies
         run: yarn cms:install

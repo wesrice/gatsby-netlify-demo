@@ -12,10 +12,5 @@ $HOME/.volta/bin/volta pin node@10
 $HOME/.volta/bin/volta install yarn
 $HOME/.volta/bin/volta pin yarn
 
-if [[ "${CI}" == 'true' ]];
-then
-  $HOME/.volta/bin/yarn cms:install
-  $HOME/.volta/bin/yarn infrastructure:install
-fi
-
-exec $SHELL
+$HOME/.volta/bin/yarn cms:install
+$HOME/.volta/bin/yarn infrastructure:install

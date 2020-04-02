@@ -9,15 +9,15 @@ on:
       - 'infrastructure/functions/**'
 
 jobs:
-  build:
+  cloud-functions:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@master
 
-      - name: Setup environment
-        run: yarn setup:ci
+      - name: Install Volta
+        uses: volta-cli/action@v1
 
       - name: Install dependencies
         run: yarn cloud-functions:install
