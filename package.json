@@ -1,6 +1,29 @@
 {
   "name": "gatsby-netlify-demo",
   "private": true,
+  "renovate": {
+    "extends":["config:base"],
+    "lockFileMaintenance": {
+      "automerge": true
+    },
+    "packageRules": [
+      {
+        "paths": ["package.json"]
+      }
+    ],
+    "patch": {
+      "automerge": true
+    },
+
+    "pin": {
+      "automerge": true
+    },
+    "separateMinorPatch": false,
+    "vulnerabilityAlerts": {
+      "labels": ["security"],
+      "assignees": ["@wesrice"]
+    }
+  },
   "scripts": {
     "clean:node_modules": "find . -name \"node_modules\" -exec rm -rf '{}' +",
     "cloud-functions:build": "yarn --cwd infrastructure/functions build",
@@ -21,6 +44,7 @@
     "static-site-generator:deploy": "yarn --cwd static-site-generator deploy",
     "static-site-generator:deploy:ci": "yarn --cwd static-site-generator deploy:ci",
     "static-site-generator:install": "yarn --cwd static-site-generator install",
+    "static-site-generator:test": "yarn --cwd static-site-generator test",
     "static-site-generator:serve": "yarn --cwd static-site-generator serve"
   },
   "version": "0.1.0",

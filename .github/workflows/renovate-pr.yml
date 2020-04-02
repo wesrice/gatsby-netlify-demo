@@ -1,0 +1,34 @@
+name: renovate
+
+on:
+  pull_request:
+    branches:
+      - 'renovate/**'
+
+jobs:
+  cms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Volta
+        uses: volta-cli/action@v1
+
+      - name: Install dependencies
+        run: yarn cms:install
+
+      - name: Build
+        run: yarn cms:build
+
+  site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Volta
+        uses: volta-cli/action@v1
+
+      - name: Install dependencies
+        run: yarn static-site-generator:install
+
+      - name: Build
+        run: yarn static-site-generator:build
+
+      - name: Test
+        run: yarn static-site-generator:test

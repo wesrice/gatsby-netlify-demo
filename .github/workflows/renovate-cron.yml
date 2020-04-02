@@ -1,0 +1,20 @@
+name: renovate
+
+on:
+  schedule:
+    - cron:  '*/30 * * * *'
+
+jobs:
+  cms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: Djiit/action-renovate@v1.0.0-alpha
+        with:
+          args: >
+            --print-config=true ${{ github.repository }}
+          # --more-args
+        env:
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
