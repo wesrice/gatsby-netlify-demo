@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "firebase-tools": "^7.5.0"
+    "firebase-tools": "7.16.1"
   },
   "name": "infrastructure",
   "private": true,
