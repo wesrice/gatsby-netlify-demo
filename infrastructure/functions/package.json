@@ -10,7 +10,7 @@
     "simple-oauth2": "^3.0.0"
   },
   "devDependencies": {
-    "tslint": "^6.0.0",
+    "tslint": "^6.1.1",
     "typescript": "^3.2.2"
   },
   "engines": {
