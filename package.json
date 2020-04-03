@@ -18,6 +18,7 @@
     "pin": {
       "automerge": true
     },
+    "rangeStrategy": "update-lockfile",
     "separateMinorPatch": false,
     "vulnerabilityAlerts": {
       "labels": ["security"],
