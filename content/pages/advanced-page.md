@@ -1,7 +1,7 @@
 ---
 title: Advanced Page
 seo:
-  description: 'This page is an MDX page, containing Markdown and React.kjsffkjfs'
+  description: 'This page is an MDX page, containing Markdown and React'
   keywords:
     - mdx
     - markdown
