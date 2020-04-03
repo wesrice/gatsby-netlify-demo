@@ -34,7 +34,7 @@
     "gatsby-source-filesystem": "^2.0.29",
     "gatsby-source-openapi-aggregate": "^0.2.2",
     "gatsby-transformer-remark": "^2.6.26",
-    "graphql": "^14.1.1",
+    "graphql": "^15.0.0",
     "jest-css-modules": "^2.1.0",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
