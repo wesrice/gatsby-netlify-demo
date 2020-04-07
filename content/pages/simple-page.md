@@ -1,7 +1,7 @@
 ---
-title: Simple Page
+title: Simple Pages
 seo:
-  description: This page is a markdown page.
+  description: This page is a markdown page.lskfjfds ffkjsldfkj.
   keywords:
     - markdown
 ---
